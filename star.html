@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+<canvas id="sample" width="500" height="500"></canvas>
+<script>
+    var canvas  = document.getElementById('sample');
+    var width   = canvas.width;
+    var height  = canvas.height;
+    var context = canvas.getContext('2d');
+    var startY  = height * 0.5;
+    var startX  = width * 0.1;
+    var stars = [];
+
+    function Star(){
+        this.r = (Math.random() * 10) + 10;
+        this.radian = Math.random() * Math.PI * (2/3) + Math.PI/6;        
+    }
+
+    function createStars(){
+        for(var i=0;i<10;i++){
+            stars.push( new Star() );
+        }
+    }
+
+    var count = 0;
+    createStars();
+    function draw(){
+        count++;
+        if(count > 20){
+            count=0;
+            stars = [];
+            createStars();
+        }
+        context.clearRect(0, 0, width, height);
+        stars.forEach(function(star){
+            console.log(star);
+            var date = new Date();
+            var x = Math.sin(star.radian) * star.r * count;
+            var y = Math.cos(star.radian) * star.r * count;
+            context.fillText('★', startX + x, startY + y);
+        });
+    }
+    setInterval(draw, 50);
+
+</script>
+</body>
+</html>

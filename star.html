@@ -14,7 +14,7 @@
 
     function Star(){
         this.r = (Math.random() * 10) + 10;
-        this.radian = Math.random() * Math.PI * (2/3) + Math.PI/6;        
+        this.radian = Math.random() * Math.PI * (2/3) + Math.PI/6;
     }
 
     function createStars(){
@@ -34,7 +34,6 @@
         }
         context.clearRect(0, 0, width, height);
         stars.forEach(function(star){
-            console.log(star);
             var date = new Date();
             var x = Math.sin(star.radian) * star.r * count;
             var y = Math.cos(star.radian) * star.r * count;
@@ -42,7 +41,6 @@
         });
     }
     setInterval(draw, 50);
-
 </script>
 </body>
 </html>

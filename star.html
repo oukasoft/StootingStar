@@ -34,7 +34,6 @@
         }
         context.clearRect(0, 0, width, height);
         stars.forEach(function(star){
-            var date = new Date();
             var x = Math.sin(star.radian) * star.r * count;
             var y = Math.cos(star.radian) * star.r * count;
             context.fillText('★', startX + x, startY + y);
